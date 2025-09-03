@@ -3,9 +3,9 @@ services:
     ports:  #Host Port:Container Port
       - 8080:8080
     volumes:
-      - f/config:/config
-      - f/downloads:/downloads
-      - f/tile-cache:/tile-cache
+      - ${host-directory}/config:/config
+      - ${host-directory}/downloads:/downloads
+      - ${host-directory}/tile-cache:/tile-cache
     # labels:                                                                              # Optional if accessing directly via port
     #   - "traefik.enable=true"                                                            # Enable/Disable Traefik
     #   - "traefik.http.routers.MapTilesDownloader.rule=Host(`sub.omain.net`)"             # Access domain
