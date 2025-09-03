@@ -1,0 +1,15 @@
+services:
+  MapTilesDownloader:
+    ports:  #Host Port:Container Port
+      - 8080:8080
+    volumes:
+      - f/config:/config
+      - f/downloads:/downloads
+      - f/tile-cache:/tile-cache
+    # labels:                                                                              # Optional if accessing directly via port
+    #   - "traefik.enable=true"                                                            # Enable/Disable Traefik
+    #   - "traefik.http.routers.MapTilesDownloader.rule=Host(`sub.omain.net`)"             # Access domain
+    #   - "traefik.http.routers.MapTilesDownloader.entrypoints=websecure"                  # Use HTTPS
+    #   - "traefik.http.routers.MapTilesDownloader.tls.certresolver=httpsResolve"          # HTTPS Cert Resolver
+    #   - "traefik.http.services.MapTilesDownloader.loadbalancer.server.port=8080"         # Container Port
+    #   - "traefik.http.routers.MapTilesDownloader.middlewares=middlewares-authentik@file" # If you're using authentik
